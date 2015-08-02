@@ -7,7 +7,9 @@
       <div>{{defense}}</div>
       <div>{{deets}}</div>
     <img ng-src='{{pokemon}}'></img>
-
+    <div>
+    <progressbar max="max" value="dynamic"><span style="color:white; white-space:nowrap;">{{dynamic}} / {{max}}</span></progressbar>
+    </div>
     <ul data-ng-repeat="move in moves">
 
       <li>{{move.name}}</li>
