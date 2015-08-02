@@ -20,7 +20,7 @@ angular.module('pokeApp')
   $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemon)
   .success(function(data, status, headers, config) {
     $scope.name   = data.name;
-
+    $scope.isCollapsed = false;
     $scope.health = 'Health: ' + data.hp;
     $scope.attack = 'Attack: ' + data.attack;
     $scope.defense = 'Defense: ' + data.defense;

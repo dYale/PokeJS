@@ -9,9 +9,16 @@
     <img ng-src='{{pokemon}}'></img>
 
     <ul data-ng-repeat="move in moves">
+
       <li>{{move.name}}</li>
-    	<li>{{move.description}}</li>
-      <li>{{move.power}}</li>
+      <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle info</button>
+        <hr>
+        <div collapse="isCollapsed">
+          <div class="well well-lg">
+            <li>{{move.description}}</li>
+            <li>{{move.power}}</li>
+          </div> 
+        </div>
     </ul>
   </div>
 </div>
