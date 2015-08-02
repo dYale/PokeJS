@@ -3,11 +3,8 @@
 angular.module('pokeApp')
 .controller('PokeCtrl', ['$scope','$http' , '$timeout','$q', 'pokemonActions', function($scope, $http, $timeout,$q, pokemonActions) {
   var pokemon = Math.floor(Math.random(0,1)*200)
-  
 
-  var d = $q.defer();
 
-  d.promise.then(function(x){ $scope.trinket = x})
 
 
   var getDeets = function(arr){
@@ -22,8 +19,10 @@ angular.module('pokeApp')
 
   $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemon)
   .success(function(data, status, headers, config) {
+    $scope.max = 200;
+    $scope.dynamic = 40;
     $scope.name   = data.name;
-
+    $scope.isCollapsed = true;
     $scope.health = 'Health: ' + data.hp;
     $scope.attack = 'Attack: ' + data.attack;
     $scope.defense = 'Defense: ' + data.defense;
@@ -55,6 +54,7 @@ angular.module('pokeApp')
     getMoveDeets: function(value,callback){
       $http.get('http://pokeapi.co/' + value.resource_uri)
       .success(function(data) {
+        console.log(data)
         callback(data);
       })}
 
