@@ -1,3 +1,17 @@
 <div id='container' ng-controller="PokeCtrl">
-  <img src='{{pokemon}}'></img>
-</div>
+	<div>{{name}}</div>
+	<div>{{health}}</div>
+	<br>
+    <div>{{attack}}</div>
+    <div>{{defense}}</div>
+    <div>{{deets}}</div>
+  <img ng-src='{{pokemon}}'></img>
+
+  <ul data-ng-repeat="move in moves">
+  <li>{{move.name}}</li>
+  	<li>{{move.description}}</li>
+</ul>
+
+<!-- 
+<label data-ng-repeat="category in categories" class="category"> <a name="currentActivity" value="{{category}}" ng-model="job.category"{{ category }} </a>
+                        </label> -->
