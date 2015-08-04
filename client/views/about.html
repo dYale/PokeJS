@@ -1,8 +1,32 @@
 <div id='container' ng-controller="PokeCtrl">
-  <div class='home'>
+  <div class='home east-back'>
   	<div>{{name}}</div>
   	<div>{{health}}</div>
   	<br>
+      <div>{{attack}}</div>
+      <div>{{defense}}</div>
+      <div>{{deets}}</div>
+    <img ng-src='{{pokemon}}'></img>
+    <div>
+    <progressbar max="max" value="dynamic"><span style="color:white; white-space:nowrap;">{{dynamic}} / {{max}}</span></progressbar>
+    </div>
+    <ul data-ng-repeat="move in moves">
+
+      <li>{{move.name}}</li>
+      <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle info</button>
+        <hr>
+        <div collapse="isCollapsed">
+          <div class="well well-lg">
+            <li>{{move.description}}</li>
+            <li>{{move.power}}</li>
+          </div> 
+        </div>
+    </ul>
+  </div>
+  <div class='away west-back'>
+    <div>{{name}}</div>
+    <div>{{health}}</div>
+    <br>
       <div>{{attack}}</div>
       <div>{{defense}}</div>
       <div>{{deets}}</div>

@@ -9,6 +9,13 @@ body{
 
 	border-radius: 5px;
 	color: blue;
-	width: 50%;
+	width: 350px;
+	margin-right: -50%;
 
+}
+
+.away{
+	border-radius: 5px;
+	color: blue;
+	width: 350px;
 }
