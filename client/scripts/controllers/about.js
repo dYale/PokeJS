@@ -15,26 +15,27 @@ angular.module('pokeApp')
     return deets;
   };
 
-
-
-  $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemon)
-  .success(function(data, status, headers, config) {
-    $scope.max = 200;
-    $scope.dynamic = 40;
-    $scope.name   = data.name;
-    $scope.isCollapsed = true;
-    $scope.health = 'Health: ' + data.hp;
-    $scope.attack = 'Attack: ' + data.attack;
-    $scope.defense = 'Defense: ' + data.defense;
-    $scope.descriptions = data.abilities;
-    $scope.moves = getDeets(pokemonActions.grabFour(data.moves))
-    $http.get('http://pokeapi.co/' + data.sprites[0].resource_uri)
-  .success(function(data, status, headers, config) {
-    $scope.pokemon = 'http://pokeapi.co/' + data.image;
-  })})
-  .error(function(data, status, headers, config) {
-    $scope.pokemon = 'No pokemon here!';
-  });
+  var render = function(){
+    $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemon)
+    .success(function(data, status, headers, config) {
+      $scope.max = data.hp;
+      $scope.dynamic = data.hp;
+      $scope.name   = data.name;
+      $scope.isCollapsed = true;
+      $scope.attack = 'Attack: ' + data.attack;
+      $scope.defense = 'Defense: ' + data.defense;
+      $scope.descriptions = data.abilities;
+      $scope.moves = getDeets(pokemonActions.grabFour(data.moves))
+      $http.get('http://pokeapi.co/' + data.sprites[0].resource_uri)
+    .success(function(data, status, headers, config) {
+      $scope.pokemon = 'http://pokeapi.co/' + data.image;
+    })})
+    .error(function(data, status, headers, config) {
+      $scope.pokemon = 'No pokemon here!';
+    });
+  }
+  render();
+  
 }])
 
 
