@@ -1,21 +1,164 @@
 
 body{
+	background: url('./pics/background1.png');
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 
 }
 
-
-.home{
-
-
-	border-radius: 5px;
-	color: blue;
-	width: 350px;
-	margin-right: -50%;
-
+ li {
+    list-style-type: none;
 }
 
-.away{
-	border-radius: 5px;
-	color: blue;
-	width: 350px;
+.name {
+	width: 100%;
+	font-size: 44px;
+	font-family: 'Pokemon !';
+	font: 'Pokemon !';
+	float: left;
+}
+
+.insideAway {
+	float: right;
+}
+
+.away {
+	width: 49%;
+    float: right;
+    height: 300px;
+    text-align: right;
+}
+.home {
+	text-align: left;
+	width: 49%;
+    float: left;
+    height: 300px;
+}
+
+.power {
+	width: 110px;
+	margin-right: 0px;
+	display: inline;
+}
+
+.enemyDeets {
+	float: right;
+}
+
+.moves {
+	width: 100%;
+}
+
+.pokePic {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10%;
+}
+
+.outer{
+    width:100%;
+    text-align: center;
+}
+
+.inner {
+	display: inline-block;
+}
+
+
+.btn {
+	width:25%;
+}
+
+.btn-group {
+	width: 100%;
+}
+
+
+
+
+
+
+html,body{ width:100%; height:100%; margin: auto; padding:0; text-align:center; background-color:#FFF;}
+.box{
+	width: 200px;
+	height: 200px;
+	display:inline-block;
+	margin:20px;
+	position: relative;
+	border: 6px solid #ccc;
+	border-radius: 50%;
+	background-image: -moz-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%,rgba(0,0,0,1) 100%), -moz-linear-gradient(-90deg, #f33 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%);
+	background-image: -webkit-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%,rgba(0,0,0,1) 100%),-webkit-linear-gradient(-90deg, #f33 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%);
+}
+.box1{
+	background-image: -moz-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%,rgba(0,0,0,1) 100%),-moz-linear-gradient(-90deg,rgba(0,0,0,0) 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%),-moz-linear-gradient(0deg,#F79905 45%, #333 45%, #3f3f3f 50%, #333 55%, #F79905 55%);
+	background-image: -webkit-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%,rgba(0,0,0,1) 100%),-webkit-linear-gradient(-90deg,rgba(0,0,0,0) 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%),-webkit-linear-gradient(0deg,#F79905 45%, #333 45%, #3f3f3f 50%, #333 55%, #F79905 55%);
+}
+.box:before{
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 6;
+	width: 20%;	
+	height: 20%;
+	background-color: #FFF;
+	border-radius: 50%;
+	box-shadow: 0 0 0 1px #AAA, 0 0 0 10px #fff, 0 0 0 16px #3f3f3f;
+	margin: 40%;
+}
+.box:after{
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 1;
+	width: 94%;
+	height: 10%;
+	background-color:rgba(0,0,0,0);
+	margin: 45% 3%;
+	box-shadow: 12px 0 0 #FFF, -12px 0 0 #FFF;
+}
+.box3:before{
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 6;
+	width: 5%;	
+	height: 5%;
+	background-color:rgba(255,255,255,1);
+	border-radius: 50%;
+	box-shadow:0 0 0 15px #FFF, 0 0 0 16px #AAA, 0 0 0 23px #fff, 0 0 0 30px #3f3f3f,
+				0 -42px 0 #FF0,0 -55px 0 #FF0;
+	margin: 47%;
+}
+h1{
+	font-family:Arial, Helvetica, sans-serif;
+	height:40px;
+	position:absolute;
+	z-index:10;
+	text-align:center;
+	left:0;
+	right:0;
+	top:230px;
+	bottom:0;
+	margin:0;
+	font-size:40px;
+	color:#FFF;
+	text-shadow:0 0 5px #000;}
+h1+h1{top:490px; font-size:30px;}
+.box:hover{ -webkit-animation:shak .3s infinite; -moz-animation:shak .3s infinite;}
+@-webkit-keyframes shak{
+	0%,100%{ -webkit-transform:rotate(-10deg);}
+	50%{-webkit-transform:rotate(10deg);}
+}
+@-moz-keyframes shak{
+	0%,100%{ -moz-transform:rotate(-10deg);}
+	50%{-moz-transform:rotate(10deg);}
+}
+
+
+
+.jumbotron{
+   	background: rgba(200, 54, 54, 0.5); 
+
 }
