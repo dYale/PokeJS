@@ -1,22 +1,13 @@
-# Node Catapult
+....it has been too long, 42 days if my memory serves me. But I will never forget, the conflating turmoil, the desolation.
 
-A boilerplate starter project that includes Node, Express, Browserify, and MVC:
+The day was dark, darker than the last. And he walked. Forward, unto the evening where the stars shown coyly.
 
-* Minimal - Understand everything.
-* Efficient - Great defaults for development and production.
-* Rapid - Get started immediately.
+He wasn't aware though, how could he have been. The muse... the grey scale eyes and eternal respite.
 
-## Getting Started
+If only the sprite was available and brite. 
 
-```
-$ git clone https://github.com/mindeavor/node-catapult my-project
-$ cd my-project
-$ npm install
-$ npm start
-```
+This is the app upon which to write, the days and raze of lives long past. But when you travel deep in mind, 
+just remember to embrace the memory of that one time. 
 
-Now visit [localhost:4000](http://localhost:4000/)
 
-## Browserify Middleware
-
-The most notable part of this app is [browserify-middleware](https://github.com/ForbesLindesay/browserify-middleware). Great node packages are exceedingly rare – this is one of those packages.
+The battle rages on.
