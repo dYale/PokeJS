@@ -1,3 +1,5 @@
+####git Clone, Npm install, Bower Install, Nodemon
+
 ....it has been too long, 42 days if my memory serves me. But I will never forget, the conflating turmoil, the desolation.
 
 The day was dark, darker than the last. And he walked. Forward, unto the evening where the stars shown coyly.
