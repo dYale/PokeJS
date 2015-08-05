@@ -2,10 +2,10 @@
 
 angular.module('pokeApp')
 .controller('PokeCtrl', ['$scope','$http' , '$timeout','$q', 'pokemonActions', function($scope, $http, $timeout,$q, pokemonActions) {
-  var pokemon = Math.floor(Math.random(0,1)*200)
 
 
 
+  $scope.event = "alert alert-warning alert-dismissible";
 
   var getDeets = function(arr){
     var deets = [];
@@ -15,27 +15,32 @@ angular.module('pokeApp')
     return deets;
   };
 
-  var render = function(){
+  var render = function(player){
+    var pokemon = Math.floor(Math.random(0,1)*200)
+    $scope[player] = {};
     $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemon)
     .success(function(data, status, headers, config) {
-      $scope.max = data.hp;
-      $scope.dynamic = data.hp;
-      $scope.name   = data.name;
-      $scope.isCollapsed = true;
-      $scope.attack = 'Attack: ' + data.attack;
-      $scope.defense = 'Defense: ' + data.defense;
-      $scope.descriptions = data.abilities;
-      $scope.moves = getDeets(pokemonActions.grabFour(data.moves))
+      $scope[player].max = data.hp;
+      $scope[player].dynamic = data.hp;
+      $scope[player].name   = data.name;
+      $scope[player].isCollapsed = true;
+      $scope[player].type = data.types[1];
+      $scope[player].attack = 'Attack: ' + data.attack;
+      $scope[player].defense = 'Defense: ' + data.defense;
+      $scope[player].descriptions = data.abilities;
+      $scope[player].moves = getDeets(pokemonActions.grabFour(data.moves))
+      $scope[player].moves.forEach(function(x){ x.descriptions = '<br>' + x.descriptions})
       $http.get('http://pokeapi.co/' + data.sprites[0].resource_uri)
     .success(function(data, status, headers, config) {
-      $scope.pokemon = 'http://pokeapi.co/' + data.image;
+      $scope[player].pokemon = 'http://pokeapi.co/' + data.image;
     })})
     .error(function(data, status, headers, config) {
       $scope.pokemon = 'No pokemon here!';
     });
-  }
-  render();
-  
+  };
+
+  render('away')
+  render('home')
 }])
 
 
@@ -55,7 +60,6 @@ angular.module('pokeApp')
     getMoveDeets: function(value,callback){
       $http.get('http://pokeapi.co/' + value.resource_uri)
       .success(function(data) {
-        console.log(data)
         callback(data);
       })}
 
