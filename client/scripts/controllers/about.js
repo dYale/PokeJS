@@ -51,8 +51,8 @@ angular.module('pokeApp')
     grabFour: function(array){
       var arr = [];
       for(var i = 0; i < 4; i++){
-        var index = Math.random(0,1) * array.length;
-          arr.push(array[i])
+        var index = Math.floor(Math.random(0,1) * array.length);
+          arr.push(array[index])
       }
       return arr;
     },
