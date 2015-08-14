@@ -24,7 +24,8 @@ angular.module('pokeApp')
       $scope[player].dynamic = data.hp;
       $scope[player].name   = data.name;
       $scope[player].isCollapsed = true;
-      $scope[player].type = data.types[1];
+      $scope[player].type = data.types;
+      console.log($scope[player].type)
       $scope[player].attack = 'Attack: ' + data.attack;
       $scope[player].defense = 'Defense: ' + data.defense;
       $scope[player].descriptions = data.abilities;
@@ -33,6 +34,17 @@ angular.module('pokeApp')
       $http.get('http://pokeapi.co/' + data.sprites[0].resource_uri)
     .success(function(data, status, headers, config) {
       $scope[player].pokemon = 'http://pokeapi.co/' + data.image;
+      $http.get('http://pokeapi.co/' + $scope[player].type[0].resource_uri)
+        .success(function(data){
+          $scope.ineffective = data.ineffective.map(function(x){return x.name});
+          $scope.superEffective = data.super_effective.map(function(x){return x.name});
+          $scope.weakness = data.weakness.map(function(x){return x.name});
+          $scope.noEffect = data.no_effect.map(function(x){return x.name});
+
+
+          console.log($scope.weakness, $scope.superEffective, $scope.resistance)
+        })
+
     })})
     .error(function(data, status, headers, config) {
       $scope.pokemon = 'No pokemon here!';
