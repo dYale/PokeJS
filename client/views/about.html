@@ -40,7 +40,7 @@
     <img class='pokePic wow slideInRight' data-wow-duration="2s" data-wow-delay="1s" ng-src='{{away.pokemon}}'></img>
     <div>
     </div>
-    <div class="btn-group" role="group" aria-label="wklejdnoijad">
+    <div class="btn-group" role="group" aria-label="">
         <button type="button" ng-click='awayAttack(away, away.moves[0])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[0].power}}"class="btn btn-default">{{away.moves[0].name}}</button>
         <button type="button" ng-click='awayAttack(away, away.moves[1])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[1].power}}"class="btn btn-default">{{away.moves[1].name}}</button>
         <button type="button" ng-click='awayAttack(away, away.moves[2])' data-html="true" popover-trigger="mouseenter" popover-placement="bottom" popover="Potential Damage: {{away.moves[2].power}}{{away.moves[2].description}}"class="btn btn-default">{{away.moves[2].name}}</button>

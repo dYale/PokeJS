@@ -46,13 +46,18 @@ angular.module('pokeApp')
 
 
       $scope.homeAttack = function(player, attack){
-        console.log(player)
-          $scope.away.dynamic = $scope.away.dynamic -= 20;
+        var attackValue = Math.floor(Math.random(0.5,1) * attack.power)
+        if(attackValue <= 0) console.log('This is a secondary move');
+        $scope.away.dynamic -= attackValue;
+        if($scope.away.dynamic <= 0) location.reload();
+
       }
 
       $scope.awayAttack = function(player, attack){
-        console.log(player)
-          $scope.home.dynamic = $scope.home.dynamic -= 20;
+         var attackValue = Math.floor(Math.random(0.8,1) * attack.power)
+         if(attackValue <= 0) console.log('This is a secondary move');
+         $scope.home.dynamic  -= attackValue;
+         if($scope.home.dynamic <= 0) location.reload();
       }
   };
 
