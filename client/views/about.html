@@ -2,7 +2,7 @@
 
 
   <div class='home'>
-      <progressbar max="max" value="dynamic"><span style="color:white; white-space:nowrap;">{{home.dynamic}} / {{home.max}}</span></progressbar>
+      <progressbar max="home.max" value="home.dynamic"><span style="color:white; white-space:nowrap;">{{home.dynamic}} / {{home.max}}</span></progressbar>
   <div class='playerDeets'>
     <div class='name'>{{home.name}}</div>
     <div>{{home.health}}</div>
@@ -16,11 +16,11 @@
     </div>
   
     <div class="btn-group" role="group" aria-label="">
-        <button type="button" popover-trigger="mouseenter" popover-placement="bottom" popover="{{home.moves[0].power}}"class="btn btn-default">{{home.moves[0].name}}</button>
-        <button type="button" popover-trigger="mouseenter" popover-placement="bottom" popover="{{home.moves[1].power}}"class="btn btn-default">{{home.moves[1].name}}</button>
-        <button type="button" data-html="true" popover-trigger="mouseenter" popover-placement="bottom" popover="Potential Damage: {{home.moves[2].power}}{{home.moves[2].description}}"class="btn btn-default">{{home.moves[2].name}}</button>
+        <button type="button" ng-click='homeAttack(home, home.moves[0])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{home.moves[0].power}}"class="btn btn-default">{{home.moves[0].name}}</button>
+        <button type="button" ng-click='homeAttack(home, home.moves[1])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{home.moves[1].power}}"class="btn btn-default">{{home.moves[1].name}}</button>
+        <button type="button" ng-click='homeAttack(home, home.moves[2])' data-html="true" popover-trigger="mouseenter" popover-placement="bottom" popover="Potential Damage: {{home.moves[2].power}}{{home.moves[2].description}}"class="btn btn-default">{{home.moves[2].name}}</button>
 
-        <button type="button" popover-trigger="mouseenter" popover-placement="bottom" popover="{{home.moves[3].power}}"class="btn btn-default">{{home.moves[3].name}}</button>
+        <button type="button" ng-click='homeAttack(home,home.moves[3])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{home.moves[3].power}}"class="btn btn-default">{{home.moves[3].name}}</button>
         </div> 
       <div class='clear'></div>
     </ul>
@@ -28,7 +28,7 @@
 
 
   <div class='away'>
-      <progressbar max="max" value="dynamic"><span style="color:white; white-space:nowrap;">{{away.dynamic}} / {{away.max}}</span></progressbar>
+      <progressbar max="away.max" value="away.dynamic"><span style="color:white; white-space:nowrap;">{{away.dynamic}} / {{away.max}}</span></progressbar>
     <div class='enemyDeets'>
     <div class='name'>{{away.name}}</div>
     <div>{{away.health}}</div>
@@ -41,11 +41,11 @@
     <div>
     </div>
     <div class="btn-group" role="group" aria-label="wklejdnoijad">
-        <button type="button" popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[0].power}}"class="btn btn-default">{{away.moves[0].name}}</button>
-        <button type="button" popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[1].power}}"class="btn btn-default">{{away.moves[1].name}}</button>
-        <button type="button" data-html="true" popover-trigger="mouseenter" popover-placement="bottom" popover="Potential Damage: {{away.moves[2].power}}{{away.moves[2].description}}"class="btn btn-default">{{away.moves[2].name}}</button>
+        <button type="button" ng-click='awayAttack(away, away.moves[0])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[0].power}}"class="btn btn-default">{{away.moves[0].name}}</button>
+        <button type="button" ng-click='awayAttack(away, away.moves[1])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[1].power}}"class="btn btn-default">{{away.moves[1].name}}</button>
+        <button type="button" ng-click='awayAttack(away, away.moves[2])' data-html="true" popover-trigger="mouseenter" popover-placement="bottom" popover="Potential Damage: {{away.moves[2].power}}{{away.moves[2].description}}"class="btn btn-default">{{away.moves[2].name}}</button>
 
-        <button type="button" popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[3].power}}"class="btn btn-default">{{away.moves[3].name}}</button>
+        <button type="button" ng-click='awayAttack(away, away.moves[3])' popover-trigger="mouseenter" popover-placement="bottom" popover="{{away.moves[3].power}}"class="btn btn-default">{{away.moves[3].name}}</button>
         </div> 
       </div>
     </ul>

@@ -25,30 +25,35 @@ angular.module('pokeApp')
       $scope[player].name   = data.name;
       $scope[player].isCollapsed = true;
       $scope[player].type = data.types;
-      console.log($scope[player].type)
       $scope[player].attack = 'Attack: ' + data.attack;
       $scope[player].defense = 'Defense: ' + data.defense;
       $scope[player].descriptions = data.abilities;
       $scope[player].moves = getDeets(pokemonActions.grabFour(data.moves))
-      $scope[player].moves.forEach(function(x){ x.descriptions = '<br>' + x.descriptions})
       $http.get('http://pokeapi.co/' + data.sprites[0].resource_uri)
     .success(function(data, status, headers, config) {
       $scope[player].pokemon = 'http://pokeapi.co/' + data.image;
       $http.get('http://pokeapi.co/' + $scope[player].type[0].resource_uri)
         .success(function(data){
-          $scope.ineffective = data.ineffective.map(function(x){return x.name});
-          $scope.superEffective = data.super_effective.map(function(x){return x.name});
-          $scope.weakness = data.weakness.map(function(x){return x.name});
-          $scope.noEffect = data.no_effect.map(function(x){return x.name});
-
-
-          console.log($scope.weakness, $scope.superEffective, $scope.resistance)
+          $scope[player].ineffective = data.ineffective.map(function(x){return x.name});
+          $scope[player].superEffective = data.super_effective.map(function(x){return x.name});
+          $scope[player].weakness = data.weakness.map(function(x){return x.name});
+          $scope[player].noEffect = data.no_effect.map(function(x){return x.name});
         })
-
     })})
     .error(function(data, status, headers, config) {
       $scope.pokemon = 'No pokemon here!';
     });
+
+
+      $scope.homeAttack = function(player, attack){
+        console.log(player)
+          $scope.away.dynamic = $scope.away.dynamic -= 20;
+      }
+
+      $scope.awayAttack = function(player, attack){
+        console.log(player)
+          $scope.home.dynamic = $scope.home.dynamic -= 20;
+      }
   };
 
   render('away')
@@ -73,7 +78,7 @@ angular.module('pokeApp')
       $http.get('http://pokeapi.co/' + value.resource_uri)
       .success(function(data) {
         callback(data);
-      })}
+      })}      
 
   }
 })
