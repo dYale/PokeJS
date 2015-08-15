@@ -5,7 +5,7 @@ angular.module('pokeApp')
 
 
 
-  $scope.event = "alert alert-warning alert-dismissible";
+  $scope.message = "Welcome to the Stadium!!"
 
   var getDeets = function(arr){
     var deets = [];
@@ -15,9 +15,14 @@ angular.module('pokeApp')
     return deets;
   };
 
+  var init = function(player){
+    $scope[player] = {};
+    $scope[player].wins = 0;
+    $scope[player].turn = true;
+  }
+
   var render = function(player){
     var pokemon = Math.floor(Math.random(0,1)*200)
-    $scope[player] = {};
     $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemon)
     .success(function(data, status, headers, config) {
       $scope[player].max = data.hp;
@@ -25,8 +30,8 @@ angular.module('pokeApp')
       $scope[player].name   = data.name;
       $scope[player].isCollapsed = true;
       $scope[player].type = data.types;
-      $scope[player].attack = 'Attack: ' + data.attack;
-      $scope[player].defense = 'Defense: ' + data.defense;
+      $scope[player].attack = data.attack;
+      $scope[player].defense = data.defense;
       $scope[player].descriptions = data.abilities;
       $scope[player].moves = getDeets(pokemonActions.grabFour(data.moves))
       $http.get('http://pokeapi.co/' + data.sprites[0].resource_uri)
@@ -46,18 +51,41 @@ angular.module('pokeApp')
 
 
       $scope.homeAttack = function(player, attack){
-        console.log(player)
-          $scope.away.dynamic = $scope.away.dynamic -= 20;
+        var cond = '';
+        var attackValue = Math.floor(Math.random(0.5,1) * attack.power)
+        if(attackValue <= 0) console.log('This is a secondary move');
+        if(attackValue > $scope.away.max - 10) cond = 'CRITICAL HIT!'
+        $scope.message = player.name + " has done " + attackValue + ' Damage!!! ' + cond
+        $scope.away.dynamic -= attackValue;
+        $scope.home.turn = false;
+        $scope.away.turn = true;
+        if($scope.away.dynamic <= 0){
+          $scope.home.wins++; 
+          render('home'); 
+          render('away');
+        }
+
       }
 
       $scope.awayAttack = function(player, attack){
-        console.log(player)
-          $scope.home.dynamic = $scope.home.dynamic -= 20;
+         var attackValue = Math.floor(Math.random(0.8,1) * attack.power) - (Math.floor(Math.random(0.8,1) * $scope.home.defense / 10));
+         if (attackValue < 0) attackValue = 5;
+         $scope.message = player.name + " has done " + attackValue + ' Damage!!!'
+         $scope.home.dynamic  -= attackValue;
+         $scope.away.turn = false;
+         $scope.home.turn = true;
+         if($scope.home.dynamic <= 0){
+          $scope.away.wins++; 
+          render('home'); 
+          render('away');
+        }
       }
   };
 
-  render('away')
-  render('home')
+  render('away');
+  render('home');
+  init('away');
+  init('home')
 }])
 
 
