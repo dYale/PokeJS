@@ -1,15 +1,9 @@
-####git Clone, Npm install, Bower Install, Nodemon
+####A P2P Pokemon Battle Simulator
 
-....it has been too long, 42 days if my memory serves me. But I will never forget, the conflating turmoil, the desolation.
+A simple application that randomly generates two pokemon and enables the players to battle each other. The game logic is based on complex algorithms incorporating type, move, defense values and much much more. Utilizes the PokeAPI for a lot of the values.
 
-The day was dark, darker than the last. And he walked. Forward, unto the evening where the stars shown coyly.
-
-He wasn't aware though, how could he have been. The muse... the grey scale eyes and eternal respite.
-
-If only the sprite was available and brite. 
-
-This is the app upon which to write, the days and raze of lives long past. But when you travel deep in mind, 
-just remember to embrace the memory of that one time. 
-
-
-The battle rages on.
+###Getting started
+####Git Clone
+####npm install
+####bower install
+####npm start
