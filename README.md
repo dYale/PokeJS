@@ -7,5 +7,4 @@ A simple application that randomly generates two pokemon and enables the players
 ```Git Clone
 npm install
 bower install
-npm start
-```
+npm start```
