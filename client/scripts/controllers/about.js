@@ -20,7 +20,8 @@ angular.module('pokeApp')
     $scope[player].wins = 0;
     $scope[player].turn = true;
   }
-
+  
+  //bad practice to have the $http request in the Controller. TODO: Abstract to factory.
   var render = function(player){
     var pokemon = Math.floor(Math.random(0,1)*200)
     $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemon)
